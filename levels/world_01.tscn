@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dihgpdli8nfq5"]
+[gd_scene load_steps=17 format=3 uid="uid://dihgpdli8nfq5"]
 
 [ext_resource type="Texture2D" uid="uid://w1eoqqt0nn7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4icsv"]
 [ext_resource type="Texture2D" uid="uid://cts0asdh1qilq" path="res://assets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_hq668"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://shaders/movement_clouds.gdshader" id="6_puste"]
 [ext_resource type="Texture2D" uid="uid://bogbytxv8e6nn" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="7_aj7ta"]
 [ext_resource type="Texture2D" uid="uid://o2h4m0fjpndh" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="8_i6nsj"]
+[ext_resource type="PackedScene" uid="uid://bgxek4pjfggq0" path="res://prefabs/moving_platform.tscn" id="10_8cmib"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_51rew"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -245,7 +246,7 @@ shader_parameter/move_speed = 0.05
 position = Vector2(76, 188)
 
 [node name="level" type="TileMap" parent="."]
-position = Vector2(3, 33)
+position = Vector2(1, 51)
 tile_set = SubResource("TileSet_ik1rt")
 format = 2
 layer_0/name = "ground"
@@ -253,12 +254,19 @@ layer_0/tile_data = PackedInt32Array(131068, 196608, 1, 196604, 196608, 2, 26214
 layer_1/name = "trees"
 layer_1/tile_data = PackedInt32Array(-131047, 65537, 1, -65498, 327681, 1, -196607, 196609, 5)
 
+[node name="moving_platform" parent="." instance=ExtResource("10_8cmib")]
+position = Vector2(75, -85)
+
+[node name="moving_platform2" parent="." instance=ExtResource("10_8cmib")]
+position = Vector2(7, -28)
+move_horizontal = false
+
 [node name="player" parent="." instance=ExtResource("3_jpw4s")]
 
 [node name="BG" type="ParallaxBackground" parent="."]
 
 [node name="05" type="ParallaxLayer" parent="BG"]
-position = Vector2(12, -49)
+position = Vector2(11, -31)
 motion_mirroring = Vector2(432, 0)
 
 [node name="texture" type="Sprite2D" parent="BG/05"]
@@ -267,7 +275,7 @@ texture = ExtResource("4_m8pwr")
 centered = false
 
 [node name="04" type="ParallaxLayer" parent="BG"]
-position = Vector2(12, -49)
+position = Vector2(11, -31)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(432, 0)
 
@@ -277,7 +285,7 @@ texture = ExtResource("5_dy10d")
 centered = false
 
 [node name="03" type="ParallaxLayer" parent="BG"]
-position = Vector2(12, -49)
+position = Vector2(11, -31)
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(432, 0)
 
@@ -289,7 +297,7 @@ texture = ExtResource("6_oh6bb")
 centered = false
 
 [node name="02" type="ParallaxLayer" parent="BG"]
-position = Vector2(12, -49)
+position = Vector2(11, -31)
 motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(432, 0)
 
@@ -299,7 +307,7 @@ texture = ExtResource("7_aj7ta")
 centered = false
 
 [node name="01" type="ParallaxLayer" parent="BG"]
-position = Vector2(12, -49)
+position = Vector2(11, -31)
 motion_scale = Vector2(0.9, 1)
 motion_mirroring = Vector2(432, 0)
 
