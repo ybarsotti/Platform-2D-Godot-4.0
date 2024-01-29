@@ -28,6 +28,8 @@ window/canvas_textures/default_texture_filter=1
 2d_render/layer_2="world"
 2d_render/layer_3="enemies"
 2d_render/layer_4="items"
+2d_render/layer_5="hitbox"
+2d_render/layer_6="hurtbox"
 
 [rendering]
 
