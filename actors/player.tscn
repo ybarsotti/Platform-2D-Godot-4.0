@@ -87,7 +87,6 @@ animation = &"jump"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_u6djp")
 
@@ -96,10 +95,20 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="collision" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(0, 2)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_r2wu2")
 debug_color = Color(0.921569, 0.176471, 0.552941, 0.419608)
 
 [node name="remote" type="RemoteTransform2D" parent="."]
+
+[node name="ray_right" type="RayCast2D" parent="."]
+position = Vector2(8, 7)
+target_position = Vector2(4, 0)
+collision_mask = 4
+
+[node name="ray_left" type="RayCast2D" parent="."]
+position = Vector2(-8, 7)
+target_position = Vector2(-4, 0)
+collision_mask = 4
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
