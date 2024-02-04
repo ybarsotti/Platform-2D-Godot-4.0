@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cotdjalqipgpj"]
+[gd_scene load_steps=15 format=3 uid="uid://cotdjalqipgpj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1610m"]
 [ext_resource type="Texture2D" uid="uid://bfdeg4ac6djwu" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="2_o503p"]
+[ext_resource type="Texture2D" uid="uid://crvo4b5qi0hof" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Hurt (32 x 32).png" id="2_uu05f"]
 [ext_resource type="Texture2D" uid="uid://c28t5703cob86" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_n1fat"]
 [ext_resource type="Texture2D" uid="uid://r7mmv2qi5tx" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="4_spfce"]
 
@@ -31,6 +32,14 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jexj1"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uu05f")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jok7l")
@@ -83,7 +92,7 @@ script = ExtResource("1_1610m")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jexj1")
-animation = &"jump"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
