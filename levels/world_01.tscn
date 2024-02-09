@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dihgpdli8nfq5"]
+[gd_scene load_steps=27 format=3 uid="uid://dihgpdli8nfq5"]
 
 [ext_resource type="Texture2D" uid="uid://w1eoqqt0nn7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4icsv"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_4jyw8"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://d3gq0tnq20obd" path="res://assets/Extras/ui_buttons_arrow_right_PRESSED.png" id="17_q3d5x"]
 [ext_resource type="Texture2D" uid="uid://u5n32xfutmlk" path="res://assets/Extras/ui_buttons_arrow_up_NORMAL.png" id="18_uixdm"]
 [ext_resource type="Texture2D" uid="uid://dphstr4p1je4s" path="res://assets/Extras/ui_buttons_arrow_up_PRESSED.png" id="19_8hpuw"]
+[ext_resource type="PackedScene" uid="uid://ducyod3ggmwwv" path="res://prefabs/break_box.tscn" id="20_hpndj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_51rew"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -405,3 +406,18 @@ texture_normal = ExtResource("18_uixdm")
 texture_pressed = ExtResource("19_8hpuw")
 action = "ui_accept"
 visibility_mode = 1
+
+[node name="break-box" parent="." instance=ExtResource("20_hpndj")]
+position = Vector2(36, -20)
+
+[node name="break-box2" parent="." instance=ExtResource("20_hpndj")]
+position = Vector2(236, -60)
+hitpoints = 5
+
+[node name="break-box3" parent="." instance=ExtResource("20_hpndj")]
+position = Vector2(300, -108)
+hitpoints = 2
+
+[node name="break-box4" parent="." instance=ExtResource("20_hpndj")]
+position = Vector2(508, -36)
+hitpoints = 1
