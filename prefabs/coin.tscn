@@ -82,7 +82,7 @@ script = ExtResource("1_bgvqp")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4grct")
-animation = &"collect"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]

@@ -85,3 +85,6 @@ shape = SubResource("RectangleShape2D_p45md")
 libraries = {
 "": SubResource("AnimationLibrary_fsv71")
 }
+
+[node name="spawn_coin" type="Marker2D" parent="."]
+position = Vector2(0, -8)
