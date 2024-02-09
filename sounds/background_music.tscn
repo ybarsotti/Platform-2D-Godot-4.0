@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct3c6m0i27y2j"]
+
+[ext_resource type="AudioStream" uid="uid://baigheewfv6st" path="res://sounds/knight.mp3" id="1_hp1i1"]
+
+[node name="background_music" type="AudioStreamPlayer"]
+stream = ExtResource("1_hp1i1")
+volume_db = -11.243
+autoplay = true

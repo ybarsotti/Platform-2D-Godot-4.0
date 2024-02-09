@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dihgpdli8nfq5"]
+[gd_scene load_steps=28 format=3 uid="uid://dihgpdli8nfq5"]
 
 [ext_resource type="Texture2D" uid="uid://w1eoqqt0nn7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4icsv"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_4jyw8"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://u5n32xfutmlk" path="res://assets/Extras/ui_buttons_arrow_up_NORMAL.png" id="18_uixdm"]
 [ext_resource type="Texture2D" uid="uid://dphstr4p1je4s" path="res://assets/Extras/ui_buttons_arrow_up_PRESSED.png" id="19_8hpuw"]
 [ext_resource type="PackedScene" uid="uid://ducyod3ggmwwv" path="res://prefabs/break_box.tscn" id="20_hpndj"]
+[ext_resource type="PackedScene" uid="uid://ct3c6m0i27y2j" path="res://sounds/background_music.tscn" id="21_pfsj8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_51rew"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -421,3 +422,5 @@ hitpoints = 2
 [node name="break-box4" parent="." instance=ExtResource("20_hpndj")]
 position = Vector2(508, -36)
 hitpoints = 1
+
+[node name="background_music" parent="." instance=ExtResource("21_pfsj8")]
