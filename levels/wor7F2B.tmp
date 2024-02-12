@@ -310,9 +310,6 @@ move_horizontal = false
 [node name="moving_platform2" parent="." instance=ExtResource("10_8cmib")]
 position = Vector2(612, 12)
 
-[node name="falling-platform" parent="." instance=ExtResource("22_cfbda")]
-position = Vector2(1, -28)
-
 [node name="player" parent="." instance=ExtResource("3_jpw4s")]
 
 [node name="BG" type="ParallaxBackground" parent="."]
@@ -428,3 +425,6 @@ position = Vector2(508, -36)
 hitpoints = 1
 
 [node name="background_music" parent="." instance=ExtResource("21_pfsj8")]
+
+[node name="falling-platform" parent="." instance=ExtResource("22_cfbda")]
+position = Vector2(-36, -20)
