@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dihgpdli8nfq5"]
+[gd_scene load_steps=34 format=3 uid="uid://dihgpdli8nfq5"]
 
 [ext_resource type="Texture2D" uid="uid://w1eoqqt0nn7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4icsv"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_4jyw8"]
@@ -255,6 +255,44 @@ pattern_1 = SubResource("TileMapPattern_mocbi")
 shader = ExtResource("6_puste")
 shader_parameter/move_speed = 0.05
 
+[sub_resource type="Animation" id="Animation_lealv"]
+resource_name = "float"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(25, -8), Vector2(25, -4), Vector2(25, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_h4pi6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, -8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cffhw"]
+_data = {
+"RESET": SubResource("Animation_h4pi6"),
+"float": SubResource("Animation_lealv")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pchoo"]
 size = Vector2(24, 18)
 
@@ -433,6 +471,13 @@ hitpoints = 1
 
 [node name="warning_sign" type="Node2D" parent="."]
 script = ExtResource("22_yocyg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="warning_sign"]
+libraries = {
+"": SubResource("AnimationLibrary_cffhw")
+}
+autoplay = "float"
+speed_scale = 0.208
 
 [node name="texture" type="Sprite2D" parent="warning_sign"]
 visible = false
