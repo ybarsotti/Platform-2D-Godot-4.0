@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dihgpdli8nfq5"]
+[gd_scene load_steps=31 format=3 uid="uid://dihgpdli8nfq5"]
 
 [ext_resource type="Texture2D" uid="uid://w1eoqqt0nn7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4icsv"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_4jyw8"]
@@ -20,8 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://u5n32xfutmlk" path="res://assets/Extras/ui_buttons_arrow_up_NORMAL.png" id="18_uixdm"]
 [ext_resource type="Texture2D" uid="uid://dphstr4p1je4s" path="res://assets/Extras/ui_buttons_arrow_up_PRESSED.png" id="19_8hpuw"]
 [ext_resource type="PackedScene" uid="uid://ducyod3ggmwwv" path="res://prefabs/break_box.tscn" id="20_hpndj"]
-[ext_resource type="PackedScene" uid="uid://ct3c6m0i27y2j" path="res://sounds/background_music.tscn" id="21_pfsj8"]
 [ext_resource type="PackedScene" uid="uid://c4yh66wk3h6te" path="res://prefabs/falling_platform.tscn" id="22_cfbda"]
+[ext_resource type="Script" path="res://scripts/warning_sign.gd" id="22_yocyg"]
+[ext_resource type="Texture2D" uid="uid://ba3qtngek8bvi" path="res://assets/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="23_h5gxw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_51rew"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -254,6 +255,9 @@ pattern_1 = SubResource("TileMapPattern_mocbi")
 shader = ExtResource("6_puste")
 shader_parameter/move_speed = 0.05
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pchoo"]
+size = Vector2(24, 18)
+
 [node name="World-01" type="Node2D"]
 position = Vector2(76, 188)
 script = ExtResource("1_4jyw8")
@@ -427,4 +431,20 @@ hitpoints = 2
 position = Vector2(508, -36)
 hitpoints = 1
 
-[node name="background_music" parent="." instance=ExtResource("21_pfsj8")]
+[node name="warning_sign" type="Node2D" parent="."]
+script = ExtResource("22_yocyg")
+
+[node name="texture" type="Sprite2D" parent="warning_sign"]
+visible = false
+position = Vector2(25, -8)
+texture = ExtResource("23_h5gxw")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="area_sign" type="Area2D" parent="warning_sign"]
+position = Vector2(25, 10)
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="warning_sign/area_sign"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pchoo")
