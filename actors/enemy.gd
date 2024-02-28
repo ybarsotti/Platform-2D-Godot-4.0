@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-
 const SPEED = 900.0
 const JUMP_VELOCITY = -400.0
 
 @onready var wall_detector := $wall_detector as RayCast2D
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
+
+@export var enemy_score := 100
 
 var direction := -1
 
@@ -35,4 +36,5 @@ func _physics_process(delta):
 
 func _on_anim_animation_finished(anim_name: StringName):
 	if anim_name == "hurt":
+		Globals.score += enemy_score
 		queue_free()
