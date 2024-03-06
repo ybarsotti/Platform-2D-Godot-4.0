@@ -537,8 +537,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_okuh7")
-default_minutes = 0
-default_seconds = 5
 
 [node name="container" type="MarginContainer" parent="HUD/control"]
 layout_mode = 1
@@ -651,5 +649,3 @@ vertical_alignment = 1
 
 [node name="clock_timer" type="Timer" parent="HUD/control"]
 autostart = true
-
-[connection signal="timeout" from="HUD/control/clock_timer" to="HUD/control" method="_on_clock_timer_timeout"]
