@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dihgpdli8nfq5"]
+[gd_scene load_steps=48 format=3 uid="uid://dihgpdli8nfq5"]
 
 [ext_resource type="Texture2D" uid="uid://w1eoqqt0nn7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4icsv"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_4jyw8"]
@@ -34,7 +34,6 @@
 [ext_resource type="Texture2D" uid="uid://bstuh08nhmt8u" path="res://assets/Mini FX, Items & UI/Common Pick-ups/coin-sprites/03_Coin-Sprites.png" id="28_yc3oi"]
 [ext_resource type="FontFile" uid="uid://djw5i077n7gr" path="res://assets/fonts/RevMiniPixel.ttf" id="29_vd0l8"]
 [ext_resource type="Texture2D" uid="uid://dvtfx8mdlcai6" path="res://assets/Mini FX, Items & UI/Mini UI/Life-Counter-Icon.png" id="30_0p6ot"]
-[ext_resource type="PackedScene" uid="uid://drn2vrsj45y8s" path="res://prefabs/checkpoint.tscn" id="35_vifkk"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_51rew"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -452,7 +451,7 @@ position = Vector2(1052, 28)
 position = Vector2(996, -4)
 
 [node name="player" parent="." instance=ExtResource("3_jpw4s")]
-position = Vector2(-41, 51)
+position = Vector2(-4, 3)
 
 [node name="BG" type="ParallaxBackground" parent="."]
 
@@ -726,8 +725,5 @@ vertical_alignment = 1
 
 [node name="clock_timer" type="Timer" parent="HUD/control"]
 autostart = true
-
-[node name="checkpoint" parent="." instance=ExtResource("35_vifkk")]
-position = Vector2(1136, 6)
 
 [connection signal="timeout" from="HUD/control/clock_timer" to="HUD/control" method="_on_clock_timer_timeout"]

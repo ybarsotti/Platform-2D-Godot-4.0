@@ -17,6 +17,7 @@ signal player_has_died()
 @onready var remote_transform := $remote as RemoteTransform2D
 
 func _physics_process(delta):
+	#print(global_position)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
