@@ -428,33 +428,6 @@ position = Vector2(1188, -92)
 [node name="coin14" parent="coins" instance=ExtResource("3_yxe6a")]
 position = Vector2(1204, -22)
 
-[node name="moving_platform" parent="." instance=ExtResource("10_8cmib")]
-position = Vector2(409, -4)
-distance = 100
-move_horizontal = false
-
-[node name="moving_platform3" parent="." instance=ExtResource("10_8cmib")]
-position = Vector2(1233, 76)
-distance = 97
-
-[node name="moving_platform2" parent="." instance=ExtResource("10_8cmib")]
-position = Vector2(612, 12)
-
-[node name="falling-platform" parent="." instance=ExtResource("22_cfbda")]
-position = Vector2(1, -28)
-
-[node name="falling-platform2" parent="." instance=ExtResource("22_cfbda")]
-position = Vector2(928, 28)
-
-[node name="falling-platform4" parent="." instance=ExtResource("22_cfbda")]
-position = Vector2(1052, 28)
-
-[node name="falling-platform3" parent="." instance=ExtResource("22_cfbda")]
-position = Vector2(996, -4)
-
-[node name="player" parent="." instance=ExtResource("3_jpw4s")]
-position = Vector2(-41, 51)
-
 [node name="BG" type="ParallaxBackground" parent="."]
 
 [node name="05" type="ParallaxLayer" parent="BG"]
@@ -535,69 +508,83 @@ position = Vector2(1508, 67)
 [node name="base_patrol" parent="enemies" instance=ExtResource("17_fddoo")]
 position = Vector2(1417, 55)
 
-[node name="controles" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ui_left" type="TouchScreenButton" parent="controles"]
-position = Vector2(16, 118)
-texture_normal = ExtResource("14_duxth")
-texture_pressed = ExtResource("15_4wgsj")
-action = "ui_left"
-visibility_mode = 1
-
-[node name="ui_right" type="TouchScreenButton" parent="controles"]
-position = Vector2(56, 118)
-texture_normal = ExtResource("16_21a6w")
-texture_pressed = ExtResource("17_q3d5x")
-action = "ui_right"
-visibility_mode = 1
-
-[node name="ui_jump" type="TouchScreenButton" parent="controles"]
-position = Vector2(280, 118)
-texture_normal = ExtResource("18_uixdm")
-texture_pressed = ExtResource("19_8hpuw")
-action = "ui_accept"
-visibility_mode = 1
-
-[node name="break-box" parent="." instance=ExtResource("20_hpndj")]
-position = Vector2(36, -20)
-
-[node name="break-box2" parent="." instance=ExtResource("20_hpndj")]
-position = Vector2(236, -60)
-hitpoints = 5
-
-[node name="break-box3" parent="." instance=ExtResource("20_hpndj")]
-position = Vector2(300, -108)
-hitpoints = 2
-
-[node name="break-box4" parent="." instance=ExtResource("20_hpndj")]
-position = Vector2(508, -36)
-hitpoints = 1
-
 [node name="warning_sign" type="Node2D" parent="."]
+
+[node name="warning_sign" type="Node2D" parent="warning_sign"]
 script = ExtResource("22_yocyg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="warning_sign"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="warning_sign/warning_sign"]
 libraries = {
 "": SubResource("AnimationLibrary_cffhw")
 }
 autoplay = "float"
 speed_scale = 0.208
 
-[node name="texture" type="Sprite2D" parent="warning_sign"]
+[node name="texture" type="Sprite2D" parent="warning_sign/warning_sign"]
 visible = false
 position = Vector2(25, -8)
 texture = ExtResource("23_h5gxw")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="area_sign" type="Area2D" parent="warning_sign"]
+[node name="area_sign" type="Area2D" parent="warning_sign/warning_sign"]
 position = Vector2(25, 10)
 collision_layer = 2
 
-[node name="collision" type="CollisionShape2D" parent="warning_sign/area_sign"]
+[node name="collision" type="CollisionShape2D" parent="warning_sign/warning_sign/area_sign"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pchoo")
+
+[node name="check_points" type="Node2D" parent="."]
+
+[node name="checkpoint" parent="check_points" instance=ExtResource("35_vifkk")]
+position = Vector2(1136, 6)
+
+[node name="platforms" type="Node2D" parent="."]
+
+[node name="moving_platform" parent="platforms" instance=ExtResource("10_8cmib")]
+position = Vector2(409, -4)
+distance = 100
+move_horizontal = false
+
+[node name="moving_platform3" parent="platforms" instance=ExtResource("10_8cmib")]
+position = Vector2(1233, 76)
+distance = 97
+
+[node name="moving_platform2" parent="platforms" instance=ExtResource("10_8cmib")]
+position = Vector2(612, 12)
+
+[node name="falling-platform" parent="platforms" instance=ExtResource("22_cfbda")]
+position = Vector2(1, -28)
+
+[node name="falling-platform2" parent="platforms" instance=ExtResource("22_cfbda")]
+position = Vector2(928, 28)
+
+[node name="falling-platform4" parent="platforms" instance=ExtResource("22_cfbda")]
+position = Vector2(1052, 28)
+
+[node name="falling-platform3" parent="platforms" instance=ExtResource("22_cfbda")]
+position = Vector2(996, -4)
+
+[node name="props" type="Node2D" parent="."]
+
+[node name="break-box" parent="props" instance=ExtResource("20_hpndj")]
+position = Vector2(36, -20)
+
+[node name="break-box2" parent="props" instance=ExtResource("20_hpndj")]
+position = Vector2(236, -60)
+hitpoints = 5
+
+[node name="break-box3" parent="props" instance=ExtResource("20_hpndj")]
+position = Vector2(300, -108)
+hitpoints = 2
+
+[node name="break-box4" parent="props" instance=ExtResource("20_hpndj")]
+position = Vector2(508, -36)
+hitpoints = 1
+
+[node name="player" parent="." instance=ExtResource("3_jpw4s")]
+position = Vector2(-41, 51)
 
 [node name="spikes-area" parent="." instance=ExtResource("24_a48w5")]
 position = Vector2(992, 80)
@@ -728,8 +715,29 @@ vertical_alignment = 1
 [node name="clock_timer" type="Timer" parent="HUD/control"]
 autostart = true
 
-[node name="checkpoint" parent="." instance=ExtResource("35_vifkk")]
-position = Vector2(1136, 6)
+[node name="controles" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ui_left" type="TouchScreenButton" parent="controles"]
+position = Vector2(16, 118)
+texture_normal = ExtResource("14_duxth")
+texture_pressed = ExtResource("15_4wgsj")
+action = "ui_left"
+visibility_mode = 1
+
+[node name="ui_right" type="TouchScreenButton" parent="controles"]
+position = Vector2(56, 118)
+texture_normal = ExtResource("16_21a6w")
+texture_pressed = ExtResource("17_q3d5x")
+action = "ui_right"
+visibility_mode = 1
+
+[node name="ui_jump" type="TouchScreenButton" parent="controles"]
+position = Vector2(280, 118)
+texture_normal = ExtResource("18_uixdm")
+texture_pressed = ExtResource("19_8hpuw")
+action = "ui_accept"
+visibility_mode = 1
 
 [node name="pause_menu" parent="." instance=ExtResource("36_jtx0t")]
 
