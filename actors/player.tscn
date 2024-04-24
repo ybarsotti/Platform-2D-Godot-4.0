@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cotdjalqipgpj"]
+[gd_scene load_steps=17 format=3 uid="uid://cotdjalqipgpj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1610m"]
 [ext_resource type="Texture2D" uid="uid://bfdeg4ac6djwu" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="2_o503p"]
 [ext_resource type="Texture2D" uid="uid://crvo4b5qi0hof" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Hurt (32 x 32).png" id="2_uu05f"]
 [ext_resource type="Texture2D" uid="uid://c28t5703cob86" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_n1fat"]
 [ext_resource type="Texture2D" uid="uid://r7mmv2qi5tx" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="4_spfce"]
+[ext_resource type="AudioStream" uid="uid://hck7tkdo1xxw" path="res://assets/SFX/jump.wav" id="6_8bhni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jok7l"]
 atlas = ExtResource("2_o503p")
@@ -92,6 +93,10 @@ collision_mask = 86
 script = ExtResource("1_1610m")
 
 [node name="animator" type="AnimationPlayer" parent="."]
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8bhni")
+volume_db = -16.865
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jexj1")

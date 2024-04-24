@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dihgpdli8nfq5"]
+[gd_scene load_steps=56 format=3 uid="uid://dihgpdli8nfq5"]
 
 [ext_resource type="Texture2D" uid="uid://w1eoqqt0nn7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4icsv"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_4jyw8"]
@@ -40,6 +40,7 @@
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="38_4d16l"]
 [ext_resource type="Script" path="res://scripts/transition.gd" id="38_881we"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="39_7ny3n"]
+[ext_resource type="AudioStream" uid="uid://d3k62rqs77nnm" path="res://assets/SFX/ambient_music.wav" id="41_nugmb"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_51rew"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -595,7 +596,7 @@ position = Vector2(508, -36)
 hitpoints = 1
 
 [node name="goal" parent="." instance=ExtResource("23_ac0jv")]
-position = Vector2(-41, 38)
+position = Vector2(1579, -45)
 next_level = "res://levels/world_02.tscn"
 
 [node name="player" parent="." instance=ExtResource("3_jpw4s")]
@@ -768,5 +769,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("39_7ny3n")
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("41_nugmb")
+volume_db = -20.613
+autoplay = true
 
 [connection signal="timeout" from="HUD/control/clock_timer" to="HUD/control" method="_on_clock_timer_timeout"]

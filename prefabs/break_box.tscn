@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ducyod3ggmwwv"]
+[gd_scene load_steps=8 format=3 uid="uid://ducyod3ggmwwv"]
 
 [ext_resource type="Script" path="res://scripts/break_box.gd" id="1_8wm40"]
 [ext_resource type="Texture2D" uid="uid://bpuix217vguh8" path="res://assets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_nmbyo"]
+[ext_resource type="AudioStream" uid="uid://cl13tafrtap5l" path="res://assets/SFX/falling_ground.wav" id="3_wftdx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p45md"]
 size = Vector2(16, 16)
@@ -88,3 +89,7 @@ libraries = {
 
 [node name="spawn_coin" type="Marker2D" parent="."]
 position = Vector2(0, -8)
+
+[node name="hit_block" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wftdx")
+volume_db = -4.685

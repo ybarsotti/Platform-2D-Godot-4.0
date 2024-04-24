@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 200.0
 const JUMP_FORCE = -400.0
 
@@ -15,6 +14,8 @@ signal player_has_died()
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform := $remote as RemoteTransform2D
+@onready var jump_sfx = $jump_sfx as AudioStreamPlayer2D
+@onready var destroy_sfx = preload("res://sounds/destroy_sfx.tscn")
 
 func _physics_process(delta):
 	#print(global_position)
@@ -24,6 +25,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		jump_sfx.play()
 		velocity.y = JUMP_FORCE
 		is_jumping = true
 	elif is_on_floor():
@@ -106,6 +108,15 @@ func _on_head_collider_body_entered(body):
 		if body.hitpoints < 0:
 			body.create_coin()
 			body.break_sprite()
+			play_destroy_sfx()
 		else:
 			body.animation_player.play("hit")
+			body.hit_block.play()
 			body.create_coin()
+
+func play_destroy_sfx():
+	var sound_sfx = destroy_sfx.instantiate()
+	get_parent().add_child(sound_sfx)
+	sound_sfx.play()
+	await sound_sfx.finished
+	sound_sfx.queue_free()
