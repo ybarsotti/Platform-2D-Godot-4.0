@@ -494,6 +494,7 @@ texture = ExtResource("8_i6nsj")
 centered = false
 
 [node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 limit_left = 0
 drag_horizontal_enabled = true
 drag_left_margin = 0.5
@@ -616,7 +617,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_okuh7")
-default_minutes = 0
+default_minutes = 2
 default_seconds = 5
 
 [node name="container" type="MarginContainer" parent="HUD/control"]
@@ -639,17 +640,17 @@ size_flags_vertical = 0
 [node name="coins_icon" type="TextureRect" parent="HUD/control/container/coins_container"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 texture = SubResource("AnimatedTexture_5ii7v")
+expand_mode = 2
 
 [node name="coins_counter" type="Label" parent="HUD/control/container/coins_container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("29_vd0l8")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "0000"
 vertical_alignment = 1
 
@@ -661,18 +662,18 @@ size_flags_vertical = 0
 [node name="timer_label" type="Label" parent="HUD/control/container/timer_container"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("29_vd0l8")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "TIME:"
 vertical_alignment = 1
 
 [node name="timer_counter" type="Label" parent="HUD/control/container/timer_container"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("29_vd0l8")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "00:00"
 vertical_alignment = 1
 
@@ -684,18 +685,18 @@ size_flags_vertical = 0
 [node name="score_label" type="Label" parent="HUD/control/container/score_container"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("29_vd0l8")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "SCORE:"
 vertical_alignment = 1
 
 [node name="score_counter" type="Label" parent="HUD/control/container/score_container"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("29_vd0l8")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "000000"
 vertical_alignment = 1
 
@@ -707,24 +708,24 @@ size_flags_vertical = 8
 [node name="life_icon" type="TextureRect" parent="HUD/control/container/life_container"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 texture = ExtResource("30_0p6ot")
+expand_mode = 2
 
 [node name="life_separator" type="Label" parent="HUD/control/container/life_container"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("29_vd0l8")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "x"
 vertical_alignment = 1
 
 [node name="life_counter" type="Label" parent="HUD/control/container/life_container"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("29_vd0l8")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "03"
 vertical_alignment = 1
 

@@ -25,7 +25,6 @@ Globals="*res://scripts/globals.gd"
 window/size/viewport_width=640
 window/size/viewport_height=320
 window/stretch/mode="viewport"
-window/stretch/scale=2.0
 window/canvas_textures/default_texture_filter=1
 
 [input]
