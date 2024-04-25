@@ -617,8 +617,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_okuh7")
-default_minutes = 2
-default_seconds = 5
+default_minutes = 0
+default_seconds = 30
 
 [node name="container" type="MarginContainer" parent="HUD/control"]
 layout_mode = 1

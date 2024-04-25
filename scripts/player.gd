@@ -65,13 +65,9 @@ func follow_camera(camera):
 func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	if Globals.player_life > 0:
 		Globals.player_life -= 1
-	else:
-		queue_free()
-		emit_signal("player_has_died")
 	
 	if knockback_force != Vector2.ZERO:
 		knockback_vector = knockback_force
-		
 		var knockback_tween := get_tree().create_tween().parallel()
 		knockback_tween.tween_property(self, "knockback_vector", Vector2.ZERO, duration)
 		animation.modulate = Color(1, 0, 0, 1)
@@ -79,6 +75,9 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	is_hurted = true
 	await get_tree().create_timer(.3).timeout
 	is_hurted = false
+	if Globals.player_life < 1:
+		queue_free()
+		emit_signal("player_has_died")
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventScreenTouch:
