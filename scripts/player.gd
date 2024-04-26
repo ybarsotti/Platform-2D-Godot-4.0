@@ -1,14 +1,20 @@
 extends CharacterBody2D
 
 const SPEED = 200.0
-const JUMP_FORCE = -400.0
+const AIR_FRICTION := 0.5
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping := false
 var is_hurted := false
 var knockback_vector := Vector2.ZERO
 var direction
+
+#handle jump ang gravity
+@export var jump_height := 64
+@export var max_time_to_peak := 0.5
+
+var jump_velocity
+var gravity
+var fall_gravity
 
 signal player_has_died()
 
@@ -17,25 +23,31 @@ signal player_has_died()
 @onready var jump_sfx = $jump_sfx as AudioStreamPlayer2D
 @onready var destroy_sfx = preload("res://sounds/destroy_sfx.tscn")
 
-func _physics_process(delta):
-	#print(global_position)
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+func _ready():
+	jump_velocity = (jump_height * 2 ) / max_time_to_peak
+	gravity = (jump_height*2)/ pow(max_time_to_peak, 2)
+	fall_gravity = gravity * 2
 
-	# Handle jump.
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.x = 0
+
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		jump_sfx.play()
-		velocity.y = JUMP_FORCE
+		velocity.y = -jump_velocity
 		is_jumping = true
 	elif is_on_floor():
 		is_jumping = false
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
+	if velocity.y > 0 or not Input.is_action_pressed("ui_accept"):
+		velocity.y += fall_gravity * delta
+	else:
+		velocity.y += gravity * delta
+	
 	direction = Input.get_axis("ui_left", "ui_right")
 	
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = lerp(velocity.x, direction * SPEED, AIR_FRICTION)
 		animation.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -78,14 +90,14 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	if Globals.player_life < 1:
 		queue_free()
 		emit_signal("player_has_died")
-
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventScreenTouch:
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-			velocity.y = JUMP_FORCE
-			is_jumping = true
-		elif is_on_floor():
-			is_jumping = false
+#
+#func _input_event(viewport, event, shape_idx):
+	#if event is InputEventScreenTouch:
+		#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			#velocity.y = -jump_velocity
+			#is_jumping = true
+		#elif is_on_floor():
+			#is_jumping = false
 
 func _set_state():
 	var state = "idle"
