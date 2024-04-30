@@ -606,7 +606,7 @@ position = Vector2(1579, -45)
 next_level = "res://levels/world_02.tscn"
 
 [node name="player" parent="." instance=ExtResource("3_jpw4s")]
-position = Vector2(1727, 51)
+position = Vector2(1474, 52)
 
 [node name="spikes-area" parent="." instance=ExtResource("24_a48w5")]
 position = Vector2(992, 80)
