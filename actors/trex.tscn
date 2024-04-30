@@ -1,50 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://yv3b5fwkv3ra"]
+[gd_scene load_steps=13 format=3 uid="uid://yv3b5fwkv3ra"]
 
 [ext_resource type="Script" path="res://scripts/trex.gd" id="1_u8et4"]
 [ext_resource type="Texture2D" uid="uid://ua0e5e05ouo5" path="res://assets/Sprite Pack 8/4 - Percy/Running (32 x 32).png" id="1_vqkkr"]
+[ext_resource type="PackedScene" uid="uid://crn6l4rbpdqsh" path="res://prefabs/hitbox.tscn" id="2_nlfeu"]
 [ext_resource type="Texture2D" uid="uid://std2vfcjnyyh" path="res://assets/Sprite Pack 8/4 - Percy/Shooting_Fireball (32 x 32).png" id="2_vbg17"]
 [ext_resource type="Texture2D" uid="uid://7tx6isrvwsxw" path="res://assets/Sprite Pack 8/4 - Percy/Hurt (32 x 32).png" id="3_wi4j7"]
-
-[sub_resource type="Animation" id="Animation_y18ib"]
-resource_name = "running"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_vqkkr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
 
 [sub_resource type="Animation" id="Animation_502ek"]
 length = 0.001
@@ -83,46 +43,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_h5yrl"]
-resource_name = "shooting"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_vbg17")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_kv88a"]
@@ -165,6 +85,101 @@ tracks/2/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_y18ib"]
+resource_name = "running"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_vqkkr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_h5yrl"]
+resource_name = "shooting"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_vbg17")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_fireball"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4u1c"]
 _data = {
 "RESET": SubResource("Animation_502ek"),
@@ -176,6 +191,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m33ow"]
 size = Vector2(12, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ae4o8"]
+size = Vector2(12, 7)
+
 [node name="trex" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -186,6 +204,11 @@ position = Vector2(0, -16)
 texture = ExtResource("1_vqkkr")
 hframes = 6
 
+[node name="hurt_sprite" type="Sprite2D" parent="sprite"]
+visible = false
+self_modulate = Color(1, 0.23, 0.23, 1)
+texture = ExtResource("3_wi4j7")
+
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_u4u1c")
@@ -193,6 +216,7 @@ libraries = {
 autoplay = "running"
 
 [node name="fireball_spawn_point" type="Marker2D" parent="."]
+position = Vector2(6, -11)
 
 [node name="ground_detector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 8)
@@ -205,3 +229,13 @@ target_position = Vector2(50, 0)
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_m33ow")
+
+[node name="hitbox" parent="." instance=ExtResource("2_nlfeu")]
+position = Vector2(6, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-6, -8)
+shape = SubResource("RectangleShape2D_ae4o8")
+debug_color = Color(0.947383, 0.00610644, 0.580473, 0.42)
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

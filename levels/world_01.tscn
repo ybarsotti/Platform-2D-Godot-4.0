@@ -522,8 +522,9 @@ position = Vector2(1508, 67)
 [node name="base_patrol" parent="enemies" instance=ExtResource("17_fddoo")]
 position = Vector2(1417, 55)
 
-[node name="trex" parent="enemies" instance=ExtResource("15_llquv")]
+[node name="trex" parent="enemies" node_paths=PackedStringArray("target") instance=ExtResource("15_llquv")]
 position = Vector2(1816, 68)
+target = NodePath("../../player")
 
 [node name="warning_sign" type="Node2D" parent="."]
 

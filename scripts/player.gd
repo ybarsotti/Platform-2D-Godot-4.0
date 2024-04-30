@@ -69,6 +69,9 @@ func _on_hurtbox_body_entered(body: Node2D):
 		take_damage(Vector2(-200, -200))
 	elif $ray_left.is_colliding():
 		take_damage(Vector2(200, -200))
+		
+	if body.is_in_group("fireball"):
+		body.queue_free()
 
 func follow_camera(camera):
 	var camera_path = camera.get_path()
