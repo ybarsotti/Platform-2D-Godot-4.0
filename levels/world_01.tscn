@@ -602,11 +602,11 @@ position = Vector2(508, -36)
 hitpoints = 1
 
 [node name="goal" parent="." instance=ExtResource("23_ac0jv")]
-position = Vector2(1579, -45)
+position = Vector2(2037, 15)
 next_level = "res://levels/world_02.tscn"
 
 [node name="player" parent="." instance=ExtResource("3_jpw4s")]
-position = Vector2(1474, 52)
+position = Vector2(-42, 53)
 
 [node name="spikes-area" parent="." instance=ExtResource("24_a48w5")]
 position = Vector2(992, 80)

@@ -13,7 +13,7 @@ func _ready():
 	control.time_is_up.connect(game_over)
 	Globals.coins = 0
 	Globals.score = 0
-	Globals.player_life = 3
+	Globals.player_life = 100
 
 	
 func reload_game():

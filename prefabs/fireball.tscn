@@ -44,7 +44,7 @@ script = ExtResource("1_hvlfs")
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_utfy6")
 autoplay = "default"
-frame_progress = 0.170845
+frame_progress = 0.481951
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
