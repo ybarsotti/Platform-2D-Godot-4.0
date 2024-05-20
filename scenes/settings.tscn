@@ -1,0 +1,162 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdoh60ephn3ql"]
+
+[ext_resource type="Theme" uid="uid://df65ve8r7a8as" path="res://default_buttons.tres" id="1_b1xbf"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_rnn2j"]
+[ext_resource type="Texture2D" uid="uid://bi47nxed36av8" path="res://assets/Mini FX, Items & UI/Mini UI/title-screen.jpg" id="2_2qhvd"]
+[ext_resource type="FontFile" uid="uid://djw5i077n7gr" path="res://assets/fonts/RevMiniPixel.ttf" id="3_icd5c"]
+[ext_resource type="AudioStream" uid="uid://bvmdbli30xppq" path="res://sounds/settings_ambience.wav" id="5_2yq7h"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnn2j")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.266575, 0.266575, 0.266575, 1)
+self_modulate = Color(0.724643, 0.724643, 0.724643, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2qhvd")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="commands" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="description" type="VBoxContainer" parent="MarginContainer/commands"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="commands" type="Label" parent="MarginContainer/commands/description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.378299, 0.549223, 0.879192, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+theme_override_font_sizes/font_size = 22
+text = "Commands:"
+
+[node name="left_movement" type="Label" parent="MarginContainer/commands/description"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Move left: "
+
+[node name="right_movement" type="Label" parent="MarginContainer/commands/description"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Move right: "
+
+[node name="jump_movement" type="Label" parent="MarginContainer/commands/description"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Jump:"
+
+[node name="interact_action" type="Label" parent="MarginContainer/commands/description"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Interact:"
+
+[node name="skip_message_action" type="Label" parent="MarginContainer/commands/description"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Next message:"
+
+[node name="spacer" type="HBoxContainer" parent="MarginContainer/commands"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="action" type="VBoxContainer" parent="MarginContainer/commands"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="empty" type="Label" parent="MarginContainer/commands/action"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "
+"
+
+[node name="left_movement" type="Label" parent="MarginContainer/commands/action"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Left arrow, A"
+
+[node name="right_movement" type="Label" parent="MarginContainer/commands/action"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Right arrow, D"
+
+[node name="jump_movement" type="Label" parent="MarginContainer/commands/action"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "Space"
+
+[node name="interact_action" type="Label" parent="MarginContainer/commands/action"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "I"
+
+[node name="skip_message_action" type="Label" parent="MarginContainer/commands/action"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_icd5c")
+text = "O"
+
+[node name="spacing" type="VBoxContainer" parent="MarginContainer/commands/action"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="back_btn" type="Button" parent="MarginContainer/commands/action"]
+layout_mode = 2
+theme = ExtResource("1_b1xbf")
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2yq7h")
+volume_db = -11.143
+
+[connection signal="pressed" from="MarginContainer/commands/action/back_btn" to="." method="_on_back_btn_pressed"]
