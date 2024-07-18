@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 200.0
 const AIR_FRICTION := 0.5
+const COIN_SCENE := preload("res://prefabs/coin_rigid.tscn")
 
 var is_jumping := false
 var is_hurted := false
@@ -91,14 +92,6 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	if Globals.player_life < 1:
 		queue_free()
 		emit_signal("player_has_died")
-#
-#func _input_event(viewport, event, shape_idx):
-	#if event is InputEventScreenTouch:
-		#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-			#velocity.y = -jump_velocity
-			#is_jumping = true
-		#elif is_on_floor():
-			#is_jumping = false
 
 func _set_state():
 	var state = "idle"
@@ -132,3 +125,4 @@ func play_destroy_sfx():
 	sound_sfx.play()
 	await sound_sfx.finished
 	sound_sfx.queue_free()
+
