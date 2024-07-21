@@ -31,6 +31,11 @@ func _ready():
 	fall_gravity = gravity * 2
 
 func _physics_process(delta):
+	# TODO: Remove this temp fix for infinite fall
+	if position.y > 120:
+		queue_free()
+		emit_signal("player_has_died")
+	
 	if not is_on_floor():
 		velocity.x = 0
 
